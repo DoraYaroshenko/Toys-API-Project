@@ -129,7 +129,7 @@ router.put("/:editId", auth, async (req, res) => {
 router.delete("/:delId", auth, async (req, res) => {
     try {
         let id = req.params.delId;
-        let data = await ToyModel.deleteOne({ _id: id, user_id: req.tokenData._id }, req.body);
+        let data = await ToyModel.deleteOne({ _id: id, user_id: req.tokenData._id });
         return res.json(data);
     }
     catch (err) {
