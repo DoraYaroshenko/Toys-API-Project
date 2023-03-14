@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./documentation.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="display-3 mt-5">Welcome to Toys API!</h1>
+        <h3 class="display-5">Read this documentation to use the API effectively.</h3>
+        <main class="text-start">
+            <div class="box rounded-5">
+                <h3>GET an information about our toys:</h3>
+                <div class="ps-4">
+                    <h5>To get all the toys use: <a href="/toys" target="_blank">/toys
+                        </a></h5>
+                    <h5>To search a toy by name or info: <a href="/toys/search/?s=barbi"
+                            target="_blank">/toys/search/?s=your-key-word</a></h5>
+                    <h5>To get all the toys of the category: <a
+                            href="/toys/category/dolls">/toys/category/category-name</a>
+                    </h5>
+                    <h5>To get a range of prices: <a href="/toys/prices/?min=10&max=50"
+                            target="_blank">/toys/prices/?min=minimum-number&max=maximum-number</a>
+                    </h5>
+                    <h5>To get a specific toy by id: <a href="/toys/single/64037c718086b474ebb17ec6"
+                            target="_blank">/toys/single/:id</a></h5>
+                </div>
+                <h4 class="my-3">You can add this to every GET request you make (of course, except searching by id):
+                </h4>
+                <div class="ps-4">
+                    <h5>Choose the page you would like to see (10 items per page): <a href="/toys/?page=1"
+                            target="_blank">/toys/?page=number</a></h5>
+                    <h5>Sort items: <a href="/toys/?sort=price" target="_blank">/toys/?sort=key-word</a></h5>
+                    <h5>Reverse the items by sort key: <a href="/toys/?reverse=yes"
+                            target="_blank">/toys/?reverse=yes</a></h5>
+                </div>
+            </div>
+            <div class="box rounded-5">
+                <h3 class="text-center display-6">SIGN UP and LOG IN to add, update or delete items</h3>
+                <h3>Sign up:</h3>
+                <div class="ps-4">
+                    <h4>Use this route to sign up: <span>/users</span></h4>
+                    <h5>You need to make a POST request giving the following information:</h5>
+                    <ul>
+                        <li><strong>name</strong> (required, must include at least 2 characters, maximum 99 characters)
+                        </li>
+                        <li><strong>email</strong> (required, must include at least 6 characters, maximum 99 characters)
+                        </li>
+                        <li><strong>password</strong> (required, must include at least 6 characters, maximum 99
+                            characters)</li>
+                        <li><strong>role</strong> (must include at least 4 characters, maximum 99 characters)</li>
+                    </ul>
+                </div>
+                <h3>Log in:</h3>
+                <div class="ps-4">
+                    <h4>Use this route to log in: <span>/users/login</span></h4>
+                    <h5>You need to make a POST request with the following information:</h5>
+                    <ul>
+                        <li><strong>email</strong> (required, must include at least 6 characters, maximum 99 characters)
+                        </li>
+                        <li><strong>password</strong> (required, must include at least 6 characters, maximum 99
+                            characters)</li>
+                    </ul>
+                    <h5>If you log in successfully, you will get token.</h5>
+                </div>
+            </div>
+            <div class="box rounded-5">
+                <h3>Add an item to the database by making a POST request:</h3>
+                <h4>(You need to log in, get a token and send it through headers to add an item)</h4>
+                <div class="ps-4">
+                    <h5>You need to send the following information about an item to the router <span>/toys</span>:</h5>
+                    <ul>
+                        <li><strong>name</strong> (required, must include at least 2 characters, maximum 99 characters)
+                        </li>
+                        <li><strong>info</strong> (required, must include at least 2 characters, maximum 999 characters)
+                        </li>
+                        <li><strong>category</strong> (required, must include at least 2 characters, maximum 20
+                            characters)</li>
+                        <li><strong>img_url</strong> (must include at least 2 characters, maximum 99 characters)</li>
+                        <li><strong>price</strong> (required, must be at least 1, maximum 2000)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box rounded-5">
+                <h3>Edit an item in the database by making a PUT request:</h3>
+                <h4>(You need to log in, get a token and send it through headers to edit an item)</h4>
+                <div class="ps-4">
+                    <h5>You need to send the following information about an item to the router <span>/toys/:id</span>,
+                        and replace the :id in the router by the _id of the item you want to edit.</h5>
+                    <ul>
+                        <li><strong>name</strong> (required, must include at least 2 characters, maximum 99 characters)
+                        </li>
+                        <li><strong>info</strong> (required, must include at least 2 characters, maximum 999 characters)
+                        </li>
+                        <li><strong>category</strong> (required, must include at least 2 characters, maximum 20
+                            characters)</li>
+                        <li><strong>img_url</strong> (must include at least 2 characters, maximum 99 characters)</li>
+                        <li><strong>price</strong> (required, must be at least 1, maximum 2000)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box rounded-5">
+                <h3>Delete an item in the database by making a DELETE request:</h3>
+                <h4>(You need to log in, get a token and send it through headers to delete an item)</h4>
+                <div class="ps-4">
+                    <h5>You only need to replace an :id in the router with the _id of an item you want to delete:
+                        <span>/toys/:id</span>:
+                    </h5>
+                </div>
+            </div>
+            <div class="box rounded-5 mb-5">
+                <h3>Get your user information by sending token through headers and making PUT request:</h3>
+                <div class="ps-4">
+                    <h5>Use the router: <span>/users/userInfo</span></h5>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
